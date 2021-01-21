@@ -226,7 +226,11 @@ $(document).ready(function(){
           	   	var cash=0;
           	   	jsonArray.forEach(function(v,i){
           	   		total+=v.qty;
-          	   		cash+=v.price;
+          	   		if(v.discount > 0){
+                    cash+=v.discount*v.qty;
+                  }else{
+                    cash+=v.price*v.qty;
+                  }
           	   	});
           	   }
 
